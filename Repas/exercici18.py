@@ -1,9 +1,12 @@
-paraules = []
+from collections import Counter
 
-while len(paraules) < 2:
-    paraula = input("Introdueix una paraula: ")
-    paraules.append(paraula)
+paraula1 = input("Introdueix la primera paraula: ")
+paraula2 = input("Introdueix la segona paraula: ")
 
-for paraula in paraules:
-    for lletra in paraula:
-        
+tupla_paraules = (paraula1, paraula2)
+
+comptador_lletres = Counter("".join(tupla_paraules))
+
+print("Resultats:")
+for lletra, comptador in comptador_lletres.items():
+    print(f"{lletra}: {comptador}")
