@@ -25,6 +25,8 @@ try:
 
     deletePelicula(conn, connection) #esborrar una peli en concret
 
+    readPeliculas(conn, connection) #lectura dels últims resultats
+
 #excepció per si el procés falla
 except (Exception, psycopg2.Error) as error:
     print("Error", error)

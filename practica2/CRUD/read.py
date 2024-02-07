@@ -1,7 +1,7 @@
 import psycopg2
 
 def readPeliculas(conn, connection):
-    print("Read executat")
+    print("Dades:")
 
     select = "SELECT * FROM Pelicules ORDER BY id;"
 
@@ -12,3 +12,5 @@ def readPeliculas(conn, connection):
     #mostrem els resultat recorrent la variable que els guarda
     for record in records:
         print(record)
+
+    print("")

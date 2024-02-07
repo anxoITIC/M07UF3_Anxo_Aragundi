@@ -1,18 +1,25 @@
 import psycopg2
 
 def updatePelicula(conn, connection):
-    print("updatePelicula executat")
+    
+    id_canvi = int(input("ID de la pelicula a modificar:"))
 
-    update = '''
-        UPDATE Pelicules
-        SET
-            titol = 'Shutter Island',
-            director = 'Martin Scorsese',
-            genere = 'Misteri',
-            sortida = 2010,
-            opinio = 'Molt bona i amb bon gir de guió'
-        WHERE titol = 'The Dark Knight';
-    '''
+    titol = input("Titol:")
+    director = input("Director:")
+    genere = input("Gènere:")
+    sortida = int(input("Any de sortida:"))
+    opinio = input("Opinió:")
+
+    update = f'''
+            UPDATE Pelicules
+            SET
+                titol = '{titol}',
+                director = '{director}',
+                genere = '{genere}',
+                sortida = {sortida},
+                opinio = '{opinio}'
+            WHERE id = {id_canvi};
+        '''
 
     
     #executem la variable update
@@ -21,4 +28,6 @@ def updatePelicula(conn, connection):
     #commit
     conn.commit()
 
+    print("")
     print("Update fet correctament")
+    print("")

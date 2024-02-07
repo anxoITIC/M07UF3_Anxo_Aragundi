@@ -23,4 +23,5 @@ def creaTaula(conn, connection):
         conn.commit()
 
         print("Procés completat! Taula creada.")
+        print("")
 
