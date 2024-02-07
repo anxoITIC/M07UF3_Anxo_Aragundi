@@ -1,0 +1,26 @@
+version: '3.1'
+services:
+  db:
+    image: postgres:13
+    container_name: database
+    environment:  
+      - POSTGRES_DB=practica_crud
+      - POSTGRES_PASSWORD=21022004
+      - POSTGRES_USER=anxo
+    ports:
+      - "5432:5432"
+    volumes:
+      - local_pgdata:/var/lib/postgresql/data
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pgadmin4
+    ports:
+      - "80:80"
+    environment:
+      PGADMIN_DEFAULT_EMAIL: anxoaragundimesias21@gmail.com
+      PGADMIN_DEFAULT_PASSWORD: anxo21022004
+    volumes:
+      - pgadmin-data:/var/lib/pgadmin
+volumes:
+  local_pgdata:
+  pgadmin-data:
