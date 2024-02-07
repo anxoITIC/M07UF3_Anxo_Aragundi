@@ -1,7 +1,12 @@
 import psycopg2
 
 from conn import connexio
-from create import creaTaula
+from createTable import creaTaula
+from create import createElements
+from update import updatePelicula
+from delete import deletePelicula
+from read import readPeliculas
+
 
 try:
     #print("1:Crear connexió i taules")
@@ -13,8 +18,15 @@ try:
 
     creaTaula(conn, connection) #crear la taula amb els elements
 
+    createElements(conn, connection) #insertar elements a la taula
 
+    readPeliculas(conn, connection) #lectura pre-update
 
+    updatePelicula(conn, connection) #editar les dades d'una peli concreta
+
+    readPeliculas(conn, connection) #lectura post-update
+
+    deletePelicula(conn, connection) #esborrar una peli en concret
 
 #excepció per si el procés falla
 except (Exception, psycopg2.Error) as error:
@@ -22,4 +34,5 @@ except (Exception, psycopg2.Error) as error:
 
 #al acabar tancar la connexió
 finally:
+    print("Procés acabat per complet.")
     conn.close()

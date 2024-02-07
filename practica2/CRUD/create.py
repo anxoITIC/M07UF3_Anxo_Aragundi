@@ -1,22 +1,21 @@
 import psycopg2
 
-#creació de la taula i els elements
-def creaTaula(conn, connection):
-    #creació de la taula
-        #he decidit fer la meva base de dades sobre pelicules
-        sql = '''CREATE TABLE Pelicules(    
-                    id SERIAL PRIMARY KEY NOT NULL,
-                    titol VARCHAR(30) NOT NULL,
-                    director VARCHAR(30) NOT NULL,
-                    genere VARCHAR(30) NOT NULL,
-                    sortida int NOT NULL,
-                    opinio VARCHAR(40) NOT NULL
-        )'''
+def createElements(conn, connection):
+    print("createElements executat")
 
+    inserts = '''
+        INSERT INTO Pelicules (titol, director, genere, sortida, opinio)
+        VALUES 
+        ('Inception', 'Christopher Nolan', 'Ciència Ficció', 2010, 'MOLT bona'),
+        ('Django Unchained', 'Quentin Tarantino', 'Western', 2012, 'De les meves preferides'),
+        ('The Dark Knight', 'Christopher Nolan', 'Acció', 2008, 'No sé perquè em vaig avorrir una mica'),
+        ('Catch Me If You Can', 'Steven Spielberg', 'Basada en fets reals', 2003, 'Molt bona i divertida');
+    '''
+    
+    #executem la variable inserts
+    #enviar la query
+    connection.execute(inserts)
+    #commit
+    conn.commit()
 
-        #enviar la query
-        connection.execute(sql)
-        #commit
-        conn.commit()
-
-        print("Procés completat! Taula creada.")
+    print("Inserts fets correctament")

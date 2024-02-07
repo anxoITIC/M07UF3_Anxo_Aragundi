@@ -14,6 +14,8 @@ def connexio():
 
     connection = conn.cursor()
 
+    print("Connexio feta")
+
     return conn, connection
 
 
