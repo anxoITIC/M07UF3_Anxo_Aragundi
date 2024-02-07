@@ -1,7 +1,7 @@
 import psycopg2
 
 #creació de la taula i els elements
-def creaTaula():
+def creaTaula(conn, connection):
     #creació de la taula
         #he decidit fer la meva base de dades sobre pelicules
         sql = '''CREATE TABLE Pelicules(    

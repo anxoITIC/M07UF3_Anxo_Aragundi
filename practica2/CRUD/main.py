@@ -9,17 +9,17 @@ try:
 
     #ordre = int(input("INTRODUEIX ORDRE"))
 
-    connexio() #crear la connexió amb la base de dades
+    conn, connection = connexio() #crear la connexió amb la base de dades
 
-    creaTaula() #crear la taula amb els elements
-
-
+    creaTaula(conn, connection) #crear la taula amb els elements
 
 
-    #excepció per si el procés falla
+
+
+#excepció per si el procés falla
 except (Exception, psycopg2.Error) as error:
     print("Error", error)
 
-    #al acabar tancar la connexió
+#al acabar tancar la connexió
 finally:
     conn.close()

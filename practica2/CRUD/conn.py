@@ -14,4 +14,6 @@ def connexio():
 
     connection = conn.cursor()
 
+    return conn, connection
+
 
