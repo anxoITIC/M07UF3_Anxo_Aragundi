@@ -9,15 +9,12 @@ from read import readPeliculas
 
 
 try:
-    #print("1:Crear connexió i taules")
-    #print("2:Esborrar taules")
 
-    #ordre = int(input("INTRODUEIX ORDRE"))
-
+    print("Connexió i taula creades")
     conn, connection = connexio() #crear la connexió amb la base de dades
-
     creaTaula(conn, connection) #crear la taula amb els elements
 
+    #creació d'elements
     createElements(conn, connection) #insertar elements a la taula
 
     readPeliculas(conn, connection) #lectura pre-update
